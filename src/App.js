@@ -4,14 +4,18 @@ import {
   Route,
   Link
 } from 'react-router-dom';
-import logo from './logo.svg';
+import Home from './pages/Home.js';
+import About from './pages/About.js';
+import Projects from './pages/Projects.js';
+import Contacts from './pages/Contacts.js'; 
 import './App.css';
 
 export default function App() {
   return (
     <Router>
       <div>
-        <nav>
+        <nav class="flex flex-vertical-center">
+          <div class= "navbar flex flex-horizontal-center">
           <ul>
             <li>
               <Link to="/">Home</Link>
@@ -20,47 +24,36 @@ export default function App() {
               <Link to="/about">About</Link>
             </li>
             <li>
-              <Link to="/users">Users</Link>
+              <Link to="/projects">Projects</Link>
+            </li>
+            <li>
+              <Link to="/contacts">Contacts</Link>
             </li>
           </ul>
+          </div>
         </nav>
-
+        <main>
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <Switch>
-          <Route path="/about">
-            {/*< About />*/}
-            <div className="App">
-              <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>*** ABOUT *** Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">Learn React</a>
-              </header>
-            </div>
-          </Route>
-          <Route path="/users">
-            {/*< Users />*/}
-            <div className="App">
-              <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>*** USERS *** Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">Learn React</a>
-              </header>
-            </div>
-          </Route>
-          <Route path="/">
-            {/*< Home />*/} <div className="App">
-              <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <p>*** HOME *** Edit <code>src/App.js</code> and save to reload.
-                </p>
-                <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">Learn React</a>
-              </header>
-            </div>
-          </Route>
-        </Switch>
+          <Switch>
+            <Route path="/about">
+              <About />
+            </Route>
+            <Route path="/projects">
+              <Projects />
+            </Route>
+            <Route path="/contacts">
+              <Contacts />
+            </Route>
+            <Route path="/">
+              <Home /> 
+            </Route>
+          </Switch>
+        </main>
+
+        <footer>
+          &copy; 2021
+        </footer>
       </div>
     </Router>
   );
